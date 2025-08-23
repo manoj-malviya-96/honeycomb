@@ -1,7 +1,10 @@
 set(VCPKG_ROOT "${CMAKE_SOURCE_DIR}/thirdparty/vcpkg")
 set(VCPKG_BINARY "${VCPKG_ROOT}/vcpkg")
 
-# Bootstrap vcpkg if necessary
+#Todo check for system installed vcpkg and use that instead if found
+
+# Bootstrap vcpkg if necessary - this insures that the vcpkg executable exists
+# and is built for the host platform.
 if (NOT EXISTS "${VCPKG_BINARY}")
     message(STATUS "Bootstrapping vcpkg in ${VCPKG_ROOT}…")
     execute_process(
