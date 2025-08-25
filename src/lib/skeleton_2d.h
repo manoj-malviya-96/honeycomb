@@ -34,7 +34,7 @@ struct EdgeHasher {
  */
 class Skeleton2D {
 public:
-    [[nodiscard]] VertexIndex addVertex(const Vertex& vertex);
+    VertexIndex addVertex(const Vertex& vertex);
     void addEdge(const Edge& edge);
 
     [[nodiscard]] const std::vector<Vertex>& getVertices() const;

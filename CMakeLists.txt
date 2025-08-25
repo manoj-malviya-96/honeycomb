@@ -5,6 +5,8 @@ project(honeycomb LANGUAGES CXX)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+option(BUILD_TESTS "Build catch unit tests ." ON)
+
 find_package(VTK REQUIRED COMPONENTS
         CommonCore
         CommonDataModel
@@ -50,3 +52,14 @@ vtk_module_autoinit(
 find_package(cxxopts REQUIRED)
 add_executable(honeycomb_exe src/main.cpp)
 target_link_libraries(honeycomb_exe PRIVATE honeycomb_lib cxxopts::cxxopts)
+
+
+if (BUILD_TESTS)
+    find_package(Catch2 REQUIRED)
+    add_executable(honeycomb_tests
+            src/lib/skeleton_2d.test.cpp
+            src/lib/honeycomb.test.cpp
+    )
+    target_link_libraries(honeycomb_tests PRIVATE honeycomb_lib Catch2::Catch2WithMain)
+    add_test(NAME honeycomb_tests COMMAND honeycomb_tests)
+endif()

@@ -67,7 +67,7 @@ std::vector<Vertex> computeHexagonCentersInGrid(const std::size_t rows, const st
 
     for (auto col = 0; col < cols; ++col) {
         for (auto row = 0; row < rows; ++row) {
-            if (row == rows - 1 && col % 2 != 0) {
+            if (rows != 1 && row == rows - 1 && col % 2 != 0) {
                 // Skip last row for odd columns to maintain grid shape
                 continue;
             }

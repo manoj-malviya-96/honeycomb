@@ -45,6 +45,10 @@ std::size_t VertexHasher::operator()(const Vertex& v) const noexcept {
 
 
 Edge::Edge(const VertexIndex& u, const VertexIndex& v) : start(u), end(v) {
+    if (start == end) {
+        throw std::invalid_argument("Edge cannot connect a vertex to itself.");
+    }
+
     if (start > end) {
         // This ensures that Edge(u, v) is the same as Edge(v, u)
         std::swap(start, end);
