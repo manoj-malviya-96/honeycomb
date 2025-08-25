@@ -46,5 +46,7 @@ vtk_module_autoinit(
                 VTK::RenderingOpenGL2
                 VTK::InteractionStyle
 )
+
+find_package(cxxopts REQUIRED)
 add_executable(honeycomb_exe src/main.cpp)
-target_link_libraries(honeycomb_exe PRIVATE honeycomb_lib)
+target_link_libraries(honeycomb_exe PRIVATE honeycomb_lib cxxopts::cxxopts)

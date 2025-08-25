@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "dependencies": [
     "vtk",
-    "catch2"
+    "catch2",
+    "cxxopts"
   ]
 }
