@@ -68,8 +68,11 @@ To make sure we can interact, added an interactive controller as well.
 2. 3D vertices 
 3. Adding tests
 
+
 ### Render example
 
+
+https://github.com/user-attachments/assets/08d1f98e-617f-4f10-9c7a-000fb3d71ec0
 
 
 
